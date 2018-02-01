@@ -1,0 +1,38 @@
+// Working with mapping street_cabinet nodes, I need to see them together with substation nodes and evenrtually other nodes with power.
+
+[out:json][timeout:25];
+
+(
+node["man_made"="street_cabinet"]({{bbox}});
+node["power"="substation"]({{bbox}});
+way["power"="substation"]({{bbox}});
+node["highway"="street_lamp"]({{bbox}});
+);
+  
+out body;
+
+>;
+out skel;
+
+{{style:
+
+/* A catch-all for nodes that is not specifically handled */
+node, are
+{ color:black; fill-color:white; }
+
+/* street_cabinet will have a blue outline */
+node[man_made=street_cabinet]
+{ color:blue; }
+
+/* substations (both nodes and ways) will have a green outline */
+node[power=substation],
+way[power=substation]
+{ color:green; }
+
+/* Anything power will have a red fill */
+node[power],
+way[power],
+node[street_cabinet=power]
+{ fill-color:red; }
+
+}}

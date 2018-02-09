@@ -1,0 +1,19 @@
+// A query to find object that has been last manipulated by somebody else than me.
+
+(
+node
+  [power=substation](newer:"2017-01-01T07:00:00Z")     // adjust date as needed
+  ({{bbox}});
+way
+  [power=substation](newer:"2017-01-01T07:00:00Z")     // adjust date as needed
+  ({{bbox}});
+  
+  )->.newnodes;
+
+The "list" of users can be expanded with more usernames seperated by comma. If they have space in their usernames, use ""
+// List all well-known power users here, which should be excluded from the result list:
+(.newnodes; - node.newnodes(user:VicVal);)->.newnodes;
+(.newnodes; - way.newnodes(user:VicVal);)->.newnodes;
+
+// Output
+.newnodes out meta;

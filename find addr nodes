@@ -1,0 +1,52 @@
+// take a set of nodes and consecutively find nearby address notes, farther and father away
+// Quite time consuming for doing the foreach loops so go with a small initial dataset.
+
+[out:json][timeout:60];
+
+node["man_made"="street_cabinet"]({{bbox}})->.skabe;
+
+(.skabe;)->.mangler;
+
+foreach.mangler->.ix(
+  node(around.ix:15)["osak:street_name"]->.near;
+  foreach.near->.ixx(
+    (.done;.ix;)->.done;
+  );
+  (.addr;.near;)->.addr;
+);
+
+(.skabe - .done)->.mangler;
+
+foreach.mangler->.ix(
+  node(around.ix:30)["osak:street_name"]->.near;
+  foreach.near->.ixx(
+    (.done;.ix;)->.done;
+  );
+  (.addr;.near;)->.addr;
+);
+
+(.skabe - .done)->.mangler;
+
+foreach.mangler->.ix(
+  node(around.ix:45)["osak:street_name"]->.near;
+  foreach.near->.ixx(
+    (.done;.ix;)->.done;
+  );
+  (.addr;.near;)->.addr;
+);
+
+(.skabe - .done)->.mangler;
+
+foreach.mangler->.ix(
+  node(around.ix:60)["osak:street_name"]->.near;
+  foreach.near->.ixx(
+    (.done;.ix;)->.done;
+  );
+  (.addr;.near;)->.addr;
+);
+
+(.skabe - .done)->.mangler;
+
+(.done; .addr; .mangler;)->.res;
+
+.res out meta;

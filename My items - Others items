@@ -1,0 +1,31 @@
+// Not really sure about these, I believe they need to be there
+[out:json][timeout:25];
+
+// Selecting an area where I'm mapping, for easy reference. Note: nodes only
+node(55.65,12.48,55.75,12.7)->.myarea;
+
+// The feature(s) I want to investigate, superset of every instance
+(
+	node.myarea["amenity"="vending_machine"];
+//	node.myarea["man_made"="street_cabinet"];
+//	node.myarea["manhole"];
+//	node.myarea["emergency"];
+//	node.myarea["natural"="tree"];
+)->.allitems;
+
+// Select those where I'm the last user to touch
+node.allitems(user:VicVal)->.myitems;
+
+// Different outpu sets:
+ (.allitems;); // Every item
+// (.myitems;); // My items
+// (.allitems; - .myitems;); // Items i didn't touch as the last
+
+// Give me all data, including editors and chagesets
+out meta;
+
+// Let's style the output with some colors and labels
+{{style:
+node, are
+{ color:black; fill-color:white; text:eval("concat(tag("operator"), ":",tag("ref"), " (", tag("last_check"), ")")") }
+}}

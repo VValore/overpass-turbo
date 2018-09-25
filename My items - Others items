@@ -1,27 +1,52 @@
 // Not really sure about these, I believe they need to be there
 [out:json][timeout:25];
 
+
 // Selecting an area where I'm mapping, for easy reference. Note: nodes only
-node(55.65,12.48,55.75,12.7)->.myarea;
+way(55.65,12.48,55.75,12.7)->.myarea;
+(
+//	way.myarea["name"="Hjalmar Brantings Plads"];
+//	way.myarea["name"="Olof Palmes Gade"];
+//	way.myarea["name"="Upsalagade"];
+//	way.myarea["name"="Stockholmsgade"];
+//	way.myarea["name"="Indiakaj"];
+//	way.myarea["name"="Forbindelsesvej"];
+//	way.myarea["name"="Folke Bernadottes Allé"];
+//	way.myarea["name"="Sølvgade"];
+	way.myarea["name"="Ryvangs Allé"];
+  	way.myarea["name"="Strandvejen"];
+  	way.myarea["name"="Østerbrogade"];
+  	way.myarea["name"="Strandvænget"];
+)->.street;
+node(around.street:42.0)->.myarea;
+
 
 // The feature(s) I want to investigate, superset of every instance
 (
-	node.myarea["amenity"="vending_machine"];
-//	node.myarea["man_made"="street_cabinet"];
-//	node.myarea["manhole"];
-//	node.myarea["emergency"];
-//	node.myarea["natural"="tree"];
+	node.myarea["vending"="parking_tickets"];
+  	node.myarea["amenity"="vending_machine"];
+	node.myarea["amenity"="charging_station"];
+	node.myarea["amenity"="post_box"];
+	node.myarea["man_made"="street_cabinet"];
+	node.myarea["natural"="tree"];
+	node.myarea["manhole"];
+	node.myarea["emergency"];
+	node.myarea["natural"="tree"];
 )->.allitems;
 
 // Select those where I'm the last user to touch
-node.allitems(user:VicVal)->.myitems;
+//node.allitems(user:VicVal)->.myitems;
+
 
 // Different outpu sets:
- (.allitems;); // Every item
+ (.allitems; .street;); // Every item
 // (.myitems;); // My items
 // (.allitems; - .myitems;); // Items i didn't touch as the last
 
 // Give me all data, including editors and chagesets
+/*added by auto repair*/
+(._;>;);
+/*end of auto repair*/
 out meta;
 
 // Let's style the output with some colors and labels

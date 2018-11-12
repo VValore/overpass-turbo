@@ -1,0 +1,125 @@
+// Finding substations within a max given distance (300) will need to mend the gaps for the areas to grow together.
+// It seems that there is a bug when starting out with a way?
+// Stand 2018-11-11 14 areas with aggregate 277 substations
+
+[out:json][timeout:35];
+
+//node["power"="substation"][operator="Radius Elnet"][ref=3047];
+
+// 13 Øster Farigmagsgade
+node["power"="substation"][operator="Radius Elnet"][ref=53637];
+complete->.t53637
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 16 Blegdamsvej
+node["power"="substation"][operator="Radius Elnet"][ref=3047];
+complete->.t3047
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 27 Kalvebod Brygge
+node["power"="substation"][operator="Radius Elnet"][ref=40258];
+complete->.t40258
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 39 Nordhavn
+node["power"="substation"][operator="Radius Elnet"][ref=50510];
+complete->.t50510
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 36 Haraldsgade
+node["power"="substation"][operator="Radius Elnet"][ref=53266];
+complete->.t53266
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 2 Frederiksberg Hospital
+node["power"="substation"][operator="Radius Elnet"][ref=60270];
+complete->.t60270
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 5 Englandsavej
+node["power"="substation"][operator="Radius Elnet"][ref=51487];
+complete->.t51487
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 46 Islands Brygge
+node["power"="substation"][operator="Radius Elnet"][ref=55173];
+complete->.t55173
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 5 Havneholmen
+node["power"="substation"][operator="Radius Elnet"][ref=55216];
+complete->.t55216
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 35 Tuborg Havn
+node["power"="substation"][operator="Radius Elnet"][ref=7004];
+complete->.t7004
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 17 Nyborggade
+node["power"="substation"][operator="Radius Elnet"][ref=55283];
+complete->.t55283
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+// 8 Øster Allé
+way["power"="substation"][operator="Radius Elnet"][ref=52401];
+complete->.t52401
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); } 
+
+// 1 Søndermarken
+node["power"="substation"][operator="Radius Elnet"][ref=60005];
+complete->.t60005
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+ 
+// 27 Teglholmen
+node["power"="substation"][operator="Radius Elnet"][ref=53160];
+complete->.t53160
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+ 
+(.t53637;.t3047;.t40258;.t50510;.t53266;.t60270;.t51487;.t55173;.t55216;.t7004;.t55283;.t52401;.t60005;.t53160;);
+
+out meta;
+>;
+out skel qt;

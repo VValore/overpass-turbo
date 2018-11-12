@@ -1,0 +1,55 @@
+[out:json][timeout:35];
+
+// 9 Nymøllegård transformerstation
+way["power"="substation"][operator="Radius Elnet;Energinet"][ref=NYM];
+complete->.tnym
+{ (
+    node(around:800)["power"="substation"];
+    way(around:800)["power"="substation"];
+); }
+
+// 31 Herstedgård transformerstation
+way["power"="substation"][operator="Radius Elnet;Energinet"][ref=HST];
+complete->.thst
+{ (
+    node(around:800)["power"="substation"];
+    way(around:800)["power"="substation"];
+); }
+
+// 5 Hedegård
+way["power"="substation"][name="132 kV Hedegård"];
+complete->.thde
+{ (
+    node(around:800)["power"="substation"];
+    way(around:800)["power"="substation"];
+); }
+
+// 2 Kamstrup
+way["power"="substation"][name="132/50 kV Kamstrup"];
+complete->.tkam
+{ (
+    node(around:800)["power"="substation"];
+    way(around:800)["power"="substation"];
+); }
+
+// 7 IKEA
+node["power"="substation"][operator="Radius Elnet"][ref=7137];
+complete->.t7137
+{ (
+    node(around:800)["power"="substation"];
+    way(around:800)["power"="substation"];
+); }
+
+// 7 Havsteensvej
+node["power"="substation"][operator="Cerius"][ref=31160];
+complete->.t31160
+{ (
+    node(around:800)["power"="substation"];
+    way(around:800)["power"="substation"];
+); }
+
+(.tnym;.thst;.thde;.tkam;.t7137;.t31160;);
+
+out meta;
+>;
+out skel qt;

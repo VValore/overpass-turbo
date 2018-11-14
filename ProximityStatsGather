@@ -1,0 +1,52 @@
+[out:json][timeout:35];
+
+(
+way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup
+//node["power"="substation"][operator="Radius Elnet"][ref=13]; // Rygårds Alle
+//way["power"="substation"][operator="Radius Elnet"][ref=16]; // Gentofte Station
+//way["power"="substation"][operator="Radius Elnet"][ref=29]; // Lundegaard
+node["power"="substation"][operator="Radius Elnet"][ref=33]; // Grundtvigs Højskole
+//node["power"="substation"][operator="Radius Elnet"][ref=52]; // Herlev vest
+//node["power"="substation"][operator="Radius Elnet"][ref=78]; // Tyvekrogen
+//node["power"="substation"][operator="Radius Elnet"][ref=84]; // Nymølle grusgrav
+//way["power"="substation"][operator="Radius Elnet"][ref=93]; // Bernstorffsvej
+//node["power"="substation"][operator="Radius Elnet"][ref=210]; // Ny Holte
+//node["power"="substation"][operator="Radius Elnet"][ref=231]; // Birkerød by
+//node["power"="substation"][operator="Radius Elnet"][ref=254]; // Knuthsvej
+//node["power"="substation"][operator="Radius Elnet"][ref=321]; // Øverød fjernvarmeværk
+//way["power"="substation"][operator="Radius Elnet"][ref=352]; // Callisensvej
+//node["power"="substation"][operator="Radius Elnet"][ref=368]; // Dyssegårdsvej
+//node["power"="substation"][operator="Radius Elnet"][ref=440];// Brogårdsvej
+//node["power"="substation"][operator="Radius Elnet"][ref=444]; // Kildegårds Plads
+//way["power"="substation"][operator="Radius Elnet"][ref=447]; // Maltegaardsvej
+//node["power"="substation"][operator="Radius Elnet"][ref=485]; // Rødovre Kirke
+//way["power"="substation"][operator="Radius Elnet"][ref=558]; // Kiplings Alle
+//way["power"="substation"][operator="Radius Elnet"][ref=562]; // Gersonsvej
+//node["power"="substation"][operator="Radius Elnet"][ref=590]; // Insulin Laboratorie A
+//node["power"="substation"][operator="Radius Elnet"][ref=613]; // Glostrup Vandværk
+//node["power"="substation"][operator="Radius Elnet"][ref=614]; // Sorgenfrigaard
+//way["power"="substation"][operator="Radius Elnet"][ref=619]; // Adolphsvej
+//way["power"="substation"][operator="Radius Elnet"][ref=648]; // Søborg Vænge
+//way["power"="substation"][operator="Radius Elnet"][ref=677]; // Hviddinge Vej
+//node["power"="substation"][operator="Radius Elnet"][ref=9089]; // 9089 Junghøj
+//node["power"="substation"][operator="Radius Elnet"][ref=9143]; // Kregme øst
+//node["power"="substation"][operator="Radius Elnet"][ref=40008]; // 40008 Bilbaogade
+//node["power"="substation"][operator="Radius Elnet"][ref=40009]; // Hvdg. Frederiks Brygge
+//node["power"="substation"][operator="Radius Elnet"][ref=50081]; // 50081 Sundkrogsgade
+//way["power"="substation"][operator="Radius Elnet"][ref=50164]; // Amager Bldv. 115
+//node["power"="substation"][operator="Radius Elnet"][ref=55002]; // 55002 Rigsarkivet
+//node["power"="substation"][operator="Radius Elnet"][ref=55004]; // A.C. Meyers Vænge
+//way["power"="substation"][operator="Radius Elnet"][ref=60001]; // 60001 Roskildevej
+//node["power"="substation"][operator="Radius Elnet"][ref=60005]; // Valby Langgade
+//node["power"="substation"][operator="Radius Elnet"][ref=60420]; // Sønderjyllands Alle
+);
+
+complete
+{ (
+    node(around:1200)["power"="substation"];
+    way(around:1200)["power"="substation"];
+); }
+
+out meta;
+>;
+out skel qt;

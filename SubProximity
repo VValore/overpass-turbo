@@ -1,6 +1,6 @@
 // Finding substations within a max given distance (300) will need to mend the gaps for the areas to grow together.
 // It seems that there is a bug when starting out with a way?
-// Stand 2018-11-13 13 areas with aggregate 299 substations
+// Stand 2018-11-14 13 areas with aggregate 317 substations
 
 [out:json][timeout:35];
 
@@ -30,7 +30,7 @@ complete->.t40258
     way(around:300)["power"="substation"];
 ); }
 
-// 39 Nordhavn
+// 65 Nordhavn
 node["power"="substation"][operator="Radius Elnet"][ref=50510];
 complete->.t50510
 { (
@@ -78,15 +78,15 @@ complete->.t7004
     way(around:300)["power"="substation"];
 ); }
 
-// 17 Nyborggade
-node["power"="substation"][operator="Radius Elnet"][ref=55283];
-complete->.t55283
+// 5 Østerport
+node["power"="substation"][operator="Radius Elnet"][ref=54105];
+complete->.t54105
 { (
     node(around:300)["power"="substation"];
     way(around:300)["power"="substation"];
 ); }
 
-// 8 Øster Allé
+// 12 Øster Allé
 way["power"="substation"][operator="Radius Elnet"][ref=52401];
 complete->.t52401
 { (
@@ -110,7 +110,7 @@ complete->.t53160
     way(around:300)["power"="substation"];
 ); }
  
-(.t53637;.t3047;.t40258;.t50510;.t53266;.t60270;.t51487;.t55173;.t7004;.t55283;.t52401;.t60005;.t53160;);
+(.t53637;.t3047;.t40258;.t50510;.t53266;.t60270;.t51487;.t55173;.t7004;.t54105;.t52401;.t60005;.t53160;);
 
 out meta;
 >;

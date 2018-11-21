@@ -1,0 +1,76 @@
+[out:csv(::"type",::"id", power, substation, operator, ref, name, voltage, frequency, location, man_made, street_cabinet, note, flickr, check_date)];
+//[out:json];
+area[admin_level=7]["name"="Frederiksberg Kommune"][boundary=administrative]->.kom;
+   (node(area.kom)[power=substation];
+    way(area.kom)[power=substation];)->.t;
+   foreach.t->.tr(
+     (.tr;);out;
+     );
+ /*
+.t out meta;
+>;
+out skel qt;*/
+
+/*
+
+[out:csv(::"type",::"id", name, admin_level,::"count")];
+area[admin_level=4]["name"="Region Hovedstaden"][boundary=administrative];
+ rel(area)[boundary][admin_level=7];
+ map_to_area;
+ foreach->.d(
+   (.d;);out; 
+   (node(area.d)[power=substation];
+    way(area.d)[power=substation];);
+   out count;
+ );
+*/
+/*
+area[admin_level=7]["name"="Frederiksberg Kommune"][boundary=administrative]->.boundaryarea;
+rel(area.boundaryarea)[admin_level=7];
+out meta;
+>;
+out skel qt;
+*/
+/*
+area[admin_level=2]["name"="Danmark"][boundary=administrative]->.boundaryarea;
+rel(area.boundaryarea)[admin_level=7];
+map_to_area -> .all_level_7_areas;
+( node(area.boundaryarea)["power"="substation"];
+  way(area.boundaryarea)["poewr"="substation"];>;);
+is_in;
+area._[admin_level=7] -> .level_7_areas_with_substation; 
+(.all_level_7_areas; - .level_7_areas_with_substation;)->.level_7_areas_without_substation; 
+rel(area.level_7_areas_without_substation)[admin_level=7];
+out meta;
+>;
+out skel qt;
+*/
+
+
+/*
+// Output in CSV format
+[out:csv(::id, "de:amtlicher_gemeindeschluessel", name)];
+
+area[admin_level=4]["name"="Schleswig-Holstein"][boundary=administrative]->.boundaryarea;
+
+// Alle bounding areas with level 8 in Schleswig-Holstein
+rel(area.boundaryarea)[admin_level=8];
+// map relations to their respective area
+map_to_area -> .all_level_8_areas;
+
+// Search All amenity=fire_station in Schleswig-Holstein
+( node(area.boundaryarea)["amenity"="fire_station"];
+  way(area.boundaryarea)["amenity"="fire_station"];>;);
+
+// in which boundary areas with level 8 do they appear?
+is_in;
+area._[admin_level=8] -> .level_8_areas_with_firestation; 
+
+// All level 8 bounding areas without those 
+// areas with fire station
+(.all_level_8_areas; - .level_8_areas_with_firestation;); 
+
+// Calculate and output relation
+rel(pivot);
+out geom;
+*/

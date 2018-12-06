@@ -1,0 +1,263 @@
+//[out:json];
+
+
+
+/*
+//[out:csv(::id,::type,"operator","ref","name",::count)][timeout:120];
+
+//[out:json];
+//area[name="Region Hovedstaden"];
+//nwr(area)[power=substation];
+//out;
+/*
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=2474];
+);*/
+/*complete->.scope
+{ (
+    node(around.scope:800)["power"="substation"];
+    way(around.scope:800)["power"="substation"];
+); }*/
+//out center;
+//out count;
+
+
+//out body; >; out skel qt;
+
+
+[out:json][timeout:90];
+/*
+(
+  node["power"="substation"][operator="Radius Elnet"][ref=910]; // Greve Center A - 5
+  node["power"="substation"][operator="Radius Elnet"][ref=2143]; // Nejlinge vest - 6
+)->.set1;
+
+(
+  node["power"="substation"][operator="Radius Elnet"][ref=3249]; // Ølsted Strand Nord - 25
+  node["power"="substation"][operator="Radius Elnet"][ref=1426]; // Farum Idrætspark - 5
+  node["power"="substation"][operator="Radius Elnet"][ref=1083]; // Harløse Mejeri - 12
+)->.set2;
+
+foreach.set1->.ix1(
+  foreach.set2->.ix2(
+    
+
+make way ::geom = lstr(
+  ::geom.ix1,
+  ::geom.ix2
+);
+    
+    );
+  );
+out body; >; out skel qt;
+*/
+
+/*
+
+(
+  node["power"="substation"][operator="Radius Elnet"][ref=50376]; // "Islands Brygge syd" - 7
+);
+
+complete
+{ (
+    node(around:300)["power"="substation"];
+    way(around:300)["power"="substation"];
+); }
+
+out body; >; out skel qt;
+
+*/
+
+
+
+
+
+// 10000 meter net
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+)->.scope10000;
+
+
+// 5000 meter net -- Residual: 9
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+  node["power"="substation"][operator="Radius Elnet"][ref=2143]; // Nejlinge vest - 6
+)->.scope5000;
+
+
+// 3500 meter net
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+  node["power"="substation"][operator="Radius Elnet"][ref=3249]; // Ølsted Strand Nord - 25
+  node["power"="substation"][operator="Radius Elnet"][ref=1083]; // Harløse Mejeri - 12
+)->.scope3500;
+
+
+// 2000 meter net
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+  node["power"="substation"][operator="Radius Elnet"][ref=3249]; // Ølsted Strand Nord - 25
+  node["power"="substation"][operator="Radius Elnet"][ref=1426]; // Farum Idrætspark - 5
+  node["power"="substation"][operator="Cerius"][ref=31059]; // Roskilde Sdr. Ringvej - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=6757]; // Skovfogedlodden - 18
+  node["power"="substation"][operator="Radius Elnet"][ref=492]; // Usserød by - 8
+)->.scope2000;
+
+
+// 1200 meter net
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+  //node["power"="substation"][operator="Radius Elnet"][ref=1426]; // Farum Idrætspark - 5
+  node["power"="substation"][operator="Cerius"][ref=31059]; // Roskilde Sdr. Ringvej - 9
+  //node["power"="substation"][operator="Radius Elnet"][ref=6757]; // Skovfogedlodden - 18
+  //node["power"="substation"][operator="Radius Elnet"][ref=492]; // Usserød by - 8
+  node["power"="substation"][operator="Radius Elnet"][ref=84]; // Nymølle grusgrav - 30
+  //way["power"="substation"][operator="Radius Elnet"][ref=897]; // Dyregaard trfst. - 15
+  //node["power"="substation"][operator="Radius Elnet"][ref=1524]; // Lundtofte Pumpestation trfst. - 6
+  //node["power"="substation"][operator="Radius Elnet"][ref=231]; // Birkerød by - 6
+)->.scope1200;
+
+// 800 meter net
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+  node["power"="substation"][operator="Radius Elnet"][ref=1426]; // Farum Idrætspark - 5
+  node["power"="substation"][operator="Cerius"][ref=31059]; // Roskilde Sdr. Ringvej - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=6757]; // Skovfogedlodden - 18
+  node["power"="substation"][operator="Radius Elnet"][ref=613]; // Glostrup Vandværk trfst. - 103
+  node["power"="substation"][operator="Radius Elnet"][ref=84]; // Nymølle grusgrav - 30
+  way["power"="substation"][operator="Radius Elnet"][ref=897]; // Dyregaard trfst. - 15
+  way["power"="substation"][operator="Radius Elnet"][ref=2500]; // Avedøregård - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=1524]; // Lundtofte Pumpestation trfst. - 6
+  node["power"="substation"][operator="Radius Elnet"][ref=231]; // Birkerød by - 6
+  node["power"="substation"][operator="Radius Elnet"][ref=78]; // Tyvekrogen - 17
+  node["power"="substation"][operator="Radius Elnet"][ref=596]; // Taastrup Teglværk - 15
+  node["power"="substation"][operator="DONG Energy - City Elnet"][ref=439]; // Amager Strand - 10
+  node["power"="substation"][operator="Radius Elnet"][ref=1439]; // Tranemosegård B - 13
+  node["power"="substation"][operator="Radius Elnet"][ref=1719]; // Hedehusene Skole - 8
+  node["power"="substation"][operator="Radius Elnet"][ref=485]; // Røovre Kirke trfst. - 5
+  node["power"="substation"][operator="Radius Elnet"][ref=1679]; // Roskilde Brødfabrik - 5
+  node["power"="substation"][operator="Radius Elnet"][ref=53016]; // Mod Refshalen - 5
+)->.scope800;
+
+// 500 meter net
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+  node["power"="substation"][operator="Cerius"][ref=31059]; // Roskilde Sdr. Ringvej - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=6757]; // Skovfogedlodden - 18
+  node["power"="substation"][operator="Radius Elnet"][ref=613]; // Glostrup Vandværk trfst. - 103
+  node["power"="substation"][operator="Radius Elnet"][ref=84]; // Nymølle grusgrav - 30
+  way["power"="substation"][operator="Radius Elnet"][ref=897]; // Dyregaard trfst. - 15
+  way["power"="substation"][operator="Radius Elnet"][ref=2500]; // Avedøregård - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=231]; // Birkerød by - 6
+  node["power"="substation"][operator="Radius Elnet"][ref=596]; // Taastrup Teglværk - 15
+  node["power"="substation"][operator="DONG Energy - City Elnet"][ref=439]; // Amager Strand - 10
+  node["power"="substation"][operator="Radius Elnet"][ref=1439]; // Tranemosegård B - 13
+  node["power"="substation"][operator="Radius Elnet"][ref=40194]; // Bernhard Bangs Alle A - 38
+  node["power"="substation"][operator="Radius Elnet"][ref=440]; // Brogårdsvej - 18
+  node["power"="substation"][operator="Radius Elnet"][ref=40199]; // Vermlandsgade A - 11
+  node["power"="substation"][operator="Radius Elnet"][ref=50598]; // "Valby Hallen" - 10
+  node["power"="substation"][operator="Radius Elnet"][ref=109]; // Lyngby Posthus - 7
+  way["power"="substation"][operator="Radius Elnet"][ref=93]; // Bernstorffsvej - 6
+  way["power"="substation"][operator="Radius Elnet"][ref=1794]; // Vridsløselille - 6
+  node["power"="substation"][operator="Radius Elnet"][ref=55293]; // Carlsberg Byen A - 6
+  node["power"="substation"][operator="Radius Elnet"][ref=33]; // Grundtvigs Højskole - 5
+  node["power"="substation"][operator="Radius Elnet"][ref=9247]; // "Frederiksbærk havn" - 5
+)->.scope500;
+
+
+// 300 meter net
+(
+  way["power"="substation"][operator="Radius Elnet"][ref=11]; // Hellerup - 957
+  node["power"="substation"][operator="Cerius"][ref=31059]; // Roskilde Sdr. Ringvej - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=6757]; // Skovfogedlodden - 18
+  node["power"="substation"][operator="Radius Elnet"][ref=613]; // Glostrup Vandværk trfst. - 103
+  node["power"="substation"][operator="Radius Elnet"][ref=84]; // Nymølle grusgrav - 30
+  way["power"="substation"][operator="Radius Elnet"][ref=897]; // Dyregaard trfst. - 15
+  node["power"="substation"][operator="Radius Elnet"][ref=231]; // Birkerød by - 6
+  node["power"="substation"][operator="Radius Elnet"][ref=596]; // Taastrup Teglværk - 15
+  node["power"="substation"][operator="Radius Elnet"][ref=40194]; // Bernhard Bangs Alle A - 38
+  node["power"="substation"][operator="Radius Elnet"][ref=40199]; // Vermlandsgade A - 11
+  node["power"="substation"][operator="Radius Elnet"][ref=50598]; // "Valby Hallen" - 10
+  way["power"="substation"][operator="Radius Elnet"][ref=51050]; // "Bellahøj" - 8
+  node["power"="substation"][operator="Radius Elnet"][ref=9247]; // "Frederiksbærk havn" - 5
+  node["power"="substation"][operator="Radius Elnet"][ref=55007]; // Amager Boulevard 6 - 46
+  node["power"="substation"][operator="Radius Elnet"][ref=53129]; // "Sydhavn" - 51
+  node["power"="substation"][operator="Radius Elnet"][ref=55002]; // Rigsarkivet - 43
+  node["power"="substation"][operator="Radius Elnet"][ref=50270]; // "Nørrebro" - 42
+  node["power"="substation"][operator="Radius Elnet"][ref=50619]; // "Øster Farigmagsgade" - 13
+  way["power"="substation"][operator="Radius Elnet"][ref=1416]; // Jægersborg vandtårn - 11
+  node["power"="substation"][operator="Radius Elnet"][ref=52070]; // "Almindeligt hosptal" - 17
+  node["power"="substation"][operator="Radius Elnet"][ref=442]; // 
+  node["power"="substation"][operator="Radius Elnet"][ref=50376]; // "Islands Brygge syd" - 10
+  node["power"="substation"][operator="Radius Elnet"][ref=55263]; // Amager Strandvej 112 - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=40403]; // "Englandsparken" - 5
+  node["power"="substation"][operator="Radius Elnet"][ref=7137]; // Ikea C - 7
+  node["power"="substation"][operator="Radius Elnet"][ref=1926]; // Gladsaxe Isstadion 5
+  node["power"="substation"][operator="Radius Elnet"][ref=60008]; // "Vordroffsvej" - 10
+  node["power"="substation"][operator="Radius Elnet"][ref=52085]; // Klosterrisvej 11 - 8
+  node["power"="substation"][operator="Radius Elnet"][ref=51251]; // "Bispebjerg bakke" - 8
+)->.scope300;
+
+
+
+/*
+(.scope800;);
+
+complete->.outer
+{ (
+    node(around.outer:800)["power"="substation"];
+    way(around.outer:800)["power"="substation"];
+); }
+
+(.scope500;);
+
+complete->.inner
+{ (
+    node(around.inner:500)["power"="substation"];
+    way(around.inner:500)["power"="substation"];
+); }
+
+(.outer; - .inner;)->.orphan;
+
+*/
+/*
+foreach.orphan(
+  convert orphan "orphan"=300;
+);
+*/
+
+//(.scope300; .orphan;);
+//(.orphan;);
+
+
+
+
+
+/*
+(.scope500;);
+foreach {
+    out center;
+    complete->.scope
+    { (
+        node(around.scope:500)["power"="substation"];
+        way(around.scope:500)["power"="substation"];
+    ); }
+    out count;out center;
+}
+*/
+
+(.scope1200;);
+complete->.scope
+{ (
+  node(around.scope:1200)["power"="substation"];
+  way(around.scope:1200)["power"="substation"];
+); }
+out center;
+
+
+
+
+
+out center;
+>;
+out skel qt;

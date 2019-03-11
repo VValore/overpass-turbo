@@ -1,0 +1,72 @@
+//
+// This query will help to identify areas where I need to go and look for more substations.
+//
+// overpass turbo can locate clusters of objects which is within a certain mesh size of each other.
+//
+// The overall area I'm concerned with can be covered in a 1200 meters mesh that as of March 8th 2019 contains 951 stationsfrom Øverød via Grønnegård, Høje Taastrup and Avedøre to Kastrup.
+//
+// I have identified top 10 clusters of substations spaced no further than 300 meters of each other.
+//
+// This query will find all of the nodes which are within 150 meters of an existing cluster, but not being part of the cluster itself.
+//
+
+// Uncomment the followinf line to get a list of substations, rather than the XML output to drive the map.
+//[out:csv("ref",::id,::type,"operator","name",::count)][timeout:120];
+
+// 300 meter cluster
+(
+  node["power"="substation"][operator="Radius Elnet"][ref=50081]; // Nordhavn - 93
+  node["power"="substation"][operator="Radius Elnet"][ref=50095]; // Amager Strand nord - 74
+   way["power"="substation"][operator="Radius Elnet"][ref=50164]; // Islands Brygge - 70
+   way["power"="substation"][operator="Radius Elnet"][ref=50596]; // Sydhavn - 60
+  node["power"="substation"][operator="Radius Elnet"][ref=50270]; // Rovsingsgade - 48
+  node["power"="substation"][operator="Radius Elnet"][ref=50947]; // Kalvebod Brygge - 47
+  node["power"="substation"][operator="Radius Elnet"][ref=50283]; // Hellerup - 37
+  node["power"="substation"][operator="Radius Elnet"][ref=613];   // Glostrup - 33
+  node["power"="substation"][operator="Radius Elnet"][ref=60009]; // Frederiksberg - 24
+  node["power"="substation"][operator="Radius Elnet"][ref=50523]; // Indre Nørrebro - 17
+)->.scope300;
+
+
+//
+// FIRST LOOP 
+//
+
+
+(.scope300;)->.seed;
+
+complete->.seed
+{ (
+    node(around.seed:300)["power"="substation"];
+    way(around.seed:300)["power"="substation"];
+); }
+
+.seed->.inner;
+
+
+//
+// SECOND LOOP
+//
+
+
+(.scope300;)->.seed;
+
+complete->.seed
+{ (
+    node(around.seed:450)["power"="substation"];
+    way(around.seed:450)["power"="substation"];
+); }
+
+.seed->.outer;
+
+
+//
+// OUTPUT
+//
+
+
+// Switching between the two following lines will either show the cluster members or the nodes with 150 meters of an existing cluster.
+(.outer; - .inner;);
+//.inner;
+
+out center;

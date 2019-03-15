@@ -12,14 +12,29 @@
 
 // Uncomment the followinf line to get a list of substations, rather than the XML output to drive the map.
 //[out:csv("ref",::id,::type,"operator","name",::count)][timeout:120];
+[timeout:120];
+
+/*
+// 500 meter cluster
+(
+  node["power"="substation"][operator="Radius Elnet"][ref=50081]; // Nordhavn - 682
+  node["power"="substation"][operator="Radius Elnet"][ref=613];   // Glostrup - 38
+  node["power"="substation"][operator="Radius Elnet"][ref=7274];   // Jægersborg - 18
+  node["power"="substation"][operator="Radius Elnet"][ref=5791];   // Taastrup - 14
+  node["power"="substation"][operator="Radius Elnet"][ref=3171];   // Brøndby - 9
+  node["power"="substation"][operator="Radius Elnet"][ref=52900];   // Valby - 17
+  node["power"="substation"][operator="Radius Elnet"][ref=6131];   // Avedøre Holme - 17
+  node["power"="substation"][operator="Radius Elnet"][ref=1414];   // Lyngby - 7
+)->.scope500;
+*/
 
 // 300 meter cluster
 (
-  node["power"="substation"][operator="Radius Elnet"][ref=50081]; // Nordhavn - 93
+  node["power"="substation"][operator="Radius Elnet"][ref=50081]; // Nordhavn - 102
   node["power"="substation"][operator="Radius Elnet"][ref=50095]; // Amager Strand nord - 74
    way["power"="substation"][operator="Radius Elnet"][ref=50164]; // Islands Brygge - 70
    way["power"="substation"][operator="Radius Elnet"][ref=50596]; // Sydhavn - 60
-  node["power"="substation"][operator="Radius Elnet"][ref=50270]; // Rovsingsgade - 48
+  node["power"="substation"][operator="Radius Elnet"][ref=50270]; // Rovsingsgade - 59
   node["power"="substation"][operator="Radius Elnet"][ref=50947]; // Kalvebod Brygge - 47
   node["power"="substation"][operator="Radius Elnet"][ref=50283]; // Hellerup - 37
   node["power"="substation"][operator="Radius Elnet"][ref=613];   // Glostrup - 33

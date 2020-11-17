@@ -1,0 +1,48 @@
+[out:json][timeout:25];
+
+{{geocodeArea:Frederikssund Kommune}}->.searchArea;
+
+(
+  node["power"](area.searchArea);
+  way["power"](area.searchArea);
+  relation["power"](area.searchArea);
+);
+
+out body;
+>; out skel qt;
+
+{{style:
+
+node[power=tower] {
+  color:green;
+  symbol-size:2;
+  text:ref;
+}
+
+node[power=substation] {
+  color:green;
+  symbol-size:5;
+  text:name;
+}
+
+node[power=cable_distribution_cabinet] {
+  color:black;
+  symbol-size:2;
+  text:ref;
+}
+
+way[power=cable] {
+  color:green;
+  dashes:25,25;
+}
+
+way[power=line] {
+  color:green;
+  width:1;
+}
+
+way[power] {
+    text:name;
+}
+
+}}

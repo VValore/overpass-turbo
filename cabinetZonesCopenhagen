@@ -1,0 +1,196 @@
+[out:json];
+
+(
+//  {{geocodeArea:Furesø Kommune}};
+  {{geocodeArea:Copenhagen Municipality}};
+  {{geocodeArea:Dragør Municipality}};
+  {{geocodeArea:Gentofte Municipality}};
+  {{geocodeArea:Gladsaxe Municipality}};
+  {{geocodeArea:Lyngby-Taarbæk Municipality}};
+  {{geocodeArea:Rødovre Municipality}};
+  {{geocodeArea:Rudersdal Municipality}};
+  {{geocodeArea:Tårnby Kommune}};
+)->.a;
+/*
+(
+  node["power"="substation"](area.a);
+  way["power"="substation"](area.a);
+)->.trafoer;
+
+.trafoer out;.trafoer>;out geom;
+*/
+node["ref"]["power"="cable_distribution_cabinet"](area.a)->.skabe;
+
+//node.skabe["ref"~   "^3-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=   "3", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~   "^4-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=   "4", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~   "^6-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=   "6", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~   "^7-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=   "7", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^11-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "11", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^13-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "13", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^15-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "15", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~  "^16-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "16", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~  "^19-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "19", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^21-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "21", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^25-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "25", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^29-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "29", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^35-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "35", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^43-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "43", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^47-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "47", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^92-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "92", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^93-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "93", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~  "^99-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone=  "99", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~ "^105-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "105", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^114-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "114", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^120-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "120", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^132-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "132", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^161-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "161", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^178-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "178", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^198-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "198", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~ "^226-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "226", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^230-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "230", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^241-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "241", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^254-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "254", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~ "^278-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "278", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~ "^306-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "306", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^352-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "352", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^353-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "353", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^357-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "357", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^368-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "368", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^424-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "424", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^440-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "440", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^441-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "441", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^444-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "444", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~ "^447-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "447", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^457-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "457", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^478-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "478", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^486-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "486", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^490-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "490", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^491-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "491", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^499-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "499", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^562-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "562", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^604-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "604", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^619-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "619", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^620-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "620", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^674-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "674", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^686-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "686", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~ "^690-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "690", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^733-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "733", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^735-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "735", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^736-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "736", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^771-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "771", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^776-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "776", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^797-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "797", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^803-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "803", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^815-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "815", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^820-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "820", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^821-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "821", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^828-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "828", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~ "^834-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "834", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^907-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "907", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^945-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "945", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^962-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "962", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~ "^981-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone= "981", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1056-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1056", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^1084-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1084", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1087-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1087", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^1107-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1107", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1145-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1145", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1146-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1146", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1157-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1157", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1179-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1179", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1238-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1238", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1267-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1267", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^1279-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1279", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1282-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1282", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1316-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1316", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1339-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1339", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1373-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1373", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1396-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1396", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1416-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1416", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^1425-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1425", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1492-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1492", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1517-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1517", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1524-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1524", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^1544-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1544", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1555-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1555", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1669-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1669", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1691-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1691", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1692-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1692", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1795-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1795", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1879-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1879", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1884-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1884", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1890-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1890", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1895-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1895", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1918-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1918", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^1960-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="1960", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^2014-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2014", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^2078-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2078", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^2327-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2327", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^2328-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2328", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^2474-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2474", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^2581-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2581", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^2905-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2905", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^2961-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="2961", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^3050-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3050", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^3159-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3159", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^3210-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3210", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^3377-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3377", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^3674-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3674", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^3678-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3678", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^3778-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3778", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^3978-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="3978", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^4029-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4029", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^4205-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4205", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^4326-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4326", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^4483-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4483", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^4531-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4531", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^4574-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4574", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^4654-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4654", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^4746-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4746", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^4782-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="4782", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^5009-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="5009", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^5027-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="5027", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^5208-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="5208", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^5113-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="5113", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^5718-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="5718", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^6112-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="6112", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^6181-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="6181", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^6399-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="6399", ::=::, ::geom=geom();)->.sum;
+//node.skabe["ref"~"^6456-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="6456", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^6627-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="6627", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^6842-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="6842", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^7106-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="7106", ::=::, ::geom=geom();)->.sum;
+node.skabe["ref"~"^7107-"]->.ix; (.skabe; - .ix;)->.skabe; (.sum; .ix convert skab zone="7107", ::=::, ::geom=geom();)->.sum;
+
+.skabe out;
+.sum out geom;
+
+.sum;
+for (t["zone"])
+{
+  make substation_area
+      substation_ref=_.val,
+      source=set("{"+type()+" "+id()+"}"),
+      ::geom=hull(gcat(geom()));
+  out geom;
+}
+
+{{style:
+
+  node[!zone], way {
+    color:red; fill-color:red; width:3; text: ref;
+  }
+
+  node[zone], way {
+    color:darkgreen; fill-color:green; width:1; symbol-size:4;
+  }
+
+  node[power=substation], way {
+    color:black; fill-color:blue; width:1; dashes:5,5; symbol-size:12; text: ref;
+  }
+
+  area {
+    text: substation_ref;
+  }
+
+}}
